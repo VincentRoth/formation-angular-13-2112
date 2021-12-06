@@ -7,6 +7,6 @@
     {{ animal.email }}
   </a>
   <br />
-  Téléphone : {{ animal.phoneNumber }}<br />
+  Téléphone : {{ animal.phoneNumber | formatPhone: "-" }}<br />
   Commentaire : {{ animal.comment }}
 </p>
