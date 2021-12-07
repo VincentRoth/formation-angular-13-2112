@@ -13,6 +13,6 @@ export class AnimalDetailComponent implements OnInit {
   constructor(private animalService: AnimalService) {}
 
   ngOnInit(): void {
-    this.animal = this.animalService.get();
+    this.animal = this.animalService.get(1);
   }
 }
