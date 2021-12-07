@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Animal } from '../../shared/api/animal';
 
 @Component({
@@ -6,10 +6,15 @@ import { Animal } from '../../shared/api/animal';
   templateUrl: './animal-item.component.html',
   styleUrls: ['./animal-item.component.scss'],
 })
-export class AnimalItemComponent implements OnInit {
+export class AnimalItemComponent {
   @Input() model: Animal;
+  @Output() itemDeletion: EventEmitter<Animal>;
 
-  constructor() {}
+  constructor() {
+    this.itemDeletion = new EventEmitter();
+  }
 
-  ngOnInit(): void {}
+  onDeletionClick(): void {
+    this.itemDeletion.emit(this.model);
+  }
 }
