@@ -3,9 +3,7 @@
   Espèce : {{ animal.species }}<br />
   Vétérinaire : {{ animal.veterinarian }}<br />
   Email :
-  <a appMailTo>
-    {{ animal.email }}
-  </a>
+  <a [appMailTo]="animal.email">Envoyer un email</a>
   <br />
   Téléphone : {{ animal.phoneNumber | formatPhone: "-" }}<br />
   Commentaire : {{ animal.comment }}
