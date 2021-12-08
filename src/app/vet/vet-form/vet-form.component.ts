@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Veterinarian } from '../../shared/api/veterinarian';
 import { VeterinarianService } from '../../shared/api/veterinarian.service';
@@ -31,23 +31,25 @@ export class VetFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const formData: Veterinarian = this.vetFormGroup.value;
-    const onSuccess = () => {
-      this.router.navigate(['/vets']);
-    };
+    if (this.vetFormGroup.valid) {
+      const formData: Veterinarian = this.vetFormGroup.value;
+      const onSuccess = () => {
+        this.router.navigate(['/vets']);
+      };
 
-    if (formData.id) {
-      this.vetService.update(formData).subscribe(onSuccess);
-    } else {
-      this.vetService.create(formData).subscribe(onSuccess);
+      if (formData.id) {
+        this.vetService.update(formData).subscribe(onSuccess);
+      } else {
+        this.vetService.create(formData).subscribe(onSuccess);
+      }
     }
   }
 
   private initFormGroup(data?: Veterinarian): void {
     this.vetFormGroup = new FormGroup({
       id: new FormControl(data?.id),
-      firstName: new FormControl(data?.firstName),
-      lastName: new FormControl(data?.lastName),
+      firstName: new FormControl(data?.firstName, Validators.required),
+      lastName: new FormControl(data?.lastName, Validators.required),
     });
   }
 }
