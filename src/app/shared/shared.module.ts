@@ -6,10 +6,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TimeInterceptor } from './api/time.interceptor';
 import { VeterinarianService } from './api/veterinarian.service';
 import { UiModule } from './ui/ui.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [MailToDirective, FormatPhonePipe],
-  exports: [MailToDirective, FormatPhonePipe, UiModule],
+  exports: [MailToDirective, FormatPhonePipe, UiModule, TranslateModule],
   imports: [HttpClientModule],
   providers: [
     AnimalService,

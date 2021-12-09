@@ -3,9 +3,14 @@
   <span>{{ getEnv() }}</span>
 
   <nav>
-    <a mat-button routerLink="/">Accueil</a>
+    <a mat-button routerLink="/">
+      {{ "common.menu.home" | translate }}
+    </a>
     <a mat-button routerLink="/vets">Vétérinaires</a>
   </nav>
+
+  <button mat-button (click)="changeLang('fr')">FR</button>
+  <button mat-button (click)="changeLang('en')">EN</button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
