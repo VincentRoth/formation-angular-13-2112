@@ -4,23 +4,25 @@
   (ngSubmit)="onSubmit()"
   *ngIf="vetFormGroup"
 >
-  <label for="firstName">Prénom</label>
-  <input id="firstName" formControlName="firstName" />
-  <p
-    *ngIf="ngForm.submitted && vetFormGroup.get('firstName').errors?.['required']"
-  >
-    Champ obligatoire
-  </p>
-  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="firstName" required />
+    <mat-error
+      *ngIf="(vetFormGroup.get('firstName').dirty || ngForm.submitted) && vetFormGroup.get('firstName').errors?.['required']"
+    >
+      Champ obligatoire
+    </mat-error>
+  </mat-form-field>
 
-  <label for="lastName">Nom</label>
-  <input id="lastName" formControlName="lastName" />
-  <p
-    *ngIf="ngForm.submitted && vetFormGroup.get('lastName').errors?.['required']"
-  >
-    Champ obligatoire
-  </p>
-  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="lastName" required />
+    <mat-error
+      *ngIf="(vetFormGroup.get('lastName').dirty || ngForm.submitted) && vetFormGroup.get('lastName').errors?.['required']"
+    >
+      Champ obligatoire
+    </mat-error>
+  </mat-form-field>
 
-  <button type="submit">Envoyer</button>
+  <button mat-button color="primary" type="submit">Envoyer</button>
 </form>

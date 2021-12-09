@@ -1,9 +1,11 @@
 <a routerLink="new">Créer un animal</a>
 
-<ul>
-  <li *ngFor="let animal of animals">
-    <app-animal-item [model]="animal" (itemDeletion)="onItemDeletion($event)">
-      blabla
-    </app-animal-item>
-  </li>
-</ul>
+<div class="flex">
+  <app-animal-item
+    *ngFor="let animal of animals"
+    [model]="animal"
+    (itemDeletion)="onItemDeletion($event)"
+  >
+    {{ animal.comment }}
+  </app-animal-item>
+</div>

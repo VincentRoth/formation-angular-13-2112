@@ -1,9 +1,11 @@
-<h1>{{ title }} app is running!</h1>
-<span>{{ getEnv() }}</span>
+<mat-toolbar color="primary">
+  <h1>{{ title }} app is running!</h1>
+  <span>{{ getEnv() }}</span>
 
-<nav>
-  <a routerLink="/">Accueil</a>
-  <a routerLink="/vets">Vétérinaires</a>
-</nav>
+  <nav>
+    <a mat-button routerLink="/">Accueil</a>
+    <a mat-button routerLink="/vets">Vétérinaires</a>
+  </nav>
+</mat-toolbar>
 
 <router-outlet></router-outlet>

@@ -1,6 +1,12 @@
-{{ model.name }} - {{ model.species }}
-<a [routerLink]="[model.id]">Voir détails</a>
-<a [routerLink]="['edit', model.id]">Modifier</a>
-<button (click)="onDeletionClick()">Supprimer</button>
-
-<ng-content></ng-content>
+<mat-card>
+  <mat-card-title>{{ model.name }}</mat-card-title>
+  <mat-card-subtitle>{{ model.species }}</mat-card-subtitle>
+  <mat-card-content>
+    <ng-content></ng-content>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <a mat-button [routerLink]="[model.id]">Voir détails</a>
+    <a mat-button [routerLink]="['edit', model.id]">Modifier</a>
+    <button mat-button (click)="onDeletionClick()">Supprimer</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+app-animal-item {
+  width: 33%;
+  margin: 8px;
+}
